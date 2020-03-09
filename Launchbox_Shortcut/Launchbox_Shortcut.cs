@@ -75,7 +75,6 @@ namespace BB_Shortcut
                         string icon_input = selectedGame.FrontImagePath;
                         string icon_output = selectedGame.FrontImagePath + ".ico";
 
-
                         WshShell wsh = new WshShell();
                         IWshShortcut shortcut = wsh.CreateShortcut(
                           Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + romname2 + ".lnk"
