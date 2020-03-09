@@ -60,7 +60,6 @@ namespace BB_Shortcut
             return true;
         }
 
-
         public void OnSelected(IGame selectedGame)
         {
             var launchBoxPath = AppDomain.CurrentDomain.BaseDirectory;
