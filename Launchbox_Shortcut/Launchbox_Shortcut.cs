@@ -72,7 +72,8 @@ namespace BB_Shortcut
                     {
                         string romname = selectedGame.Title;
                         string romname2 = romname.Replace(':', ' ');
-
+                        string icon_input = selectedGame.FrontImagePath;
+                        string icon_output = selectedGame.FrontImagePath + ".ico";
 
 
                         WshShell wsh = new WshShell();
@@ -80,8 +81,9 @@ namespace BB_Shortcut
                           Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + romname2 + ".lnk"
                         );
                         shortcut.TargetPath = launchBoxPath + "\\" + emulator.ApplicationPath;
-                        shortcut.Arguments = emulatorPlatform.CommandLine + " \"" + launchBoxPath + selectedGame.ApplicationPath + "\"";
+                        shortcut.Arguments = emulator.CommandLine + emulatorPlatform.CommandLine + " \"" + launchBoxPath + selectedGame.ApplicationPath + "\"";
                         shortcut.WorkingDirectory = Path.GetDirectoryName(shortcut.TargetPath);
+                        shortcut.IconLocation = icon_output;
                         shortcut.Save();
                         break;
                     }
