@@ -70,9 +70,14 @@ namespace BB_Shortcut
                 {
                     if (emulatorPlatform.Platform == selectedGame.Platform && emulatorPlatform.IsDefault)
                     {
+                        string romname = selectedGame.Title;
+                        string romname2 = romname.Replace(':', ' ');
+
+
+
                         WshShell wsh = new WshShell();
                         IWshShortcut shortcut = wsh.CreateShortcut(
-                          Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + selectedGame.Title + ".lnk"
+                          Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + romname2 + ".lnk"
                         );
                         shortcut.TargetPath = launchBoxPath + "\\" + emulator.ApplicationPath;
                         shortcut.Arguments = emulatorPlatform.CommandLine + " \"" + launchBoxPath + selectedGame.ApplicationPath + "\"";
