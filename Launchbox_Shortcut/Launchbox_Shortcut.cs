@@ -74,7 +74,6 @@ namespace BB_Shortcut
                         string romname2 = romname.Replace(':', ' ');
 
 
-
                         WshShell wsh = new WshShell();
                         IWshShortcut shortcut = wsh.CreateShortcut(
                           Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + romname2 + ".lnk"
