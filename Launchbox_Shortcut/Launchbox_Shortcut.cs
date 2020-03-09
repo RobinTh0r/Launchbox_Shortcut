@@ -22,7 +22,7 @@ namespace BB_Shortcut
         {
             get
             {
-                return "Erstelle Verknüpfung";
+                return "Erstelle Verknüpfung - Clear Logo";
             }
         }
 
@@ -70,14 +70,15 @@ namespace BB_Shortcut
                 {
                     if (emulatorPlatform.Platform == selectedGame.Platform && emulatorPlatform.IsDefault)
                     {
-                        string romname = selectedGame.Title;
-                        string romname2 = romname.Replace(':', ' ');
+                        string rom_input = selectedGame.Title;
+                        string rom_output = rom_input.Replace(':', ' ');
                         string icon_input = selectedGame.FrontImagePath;
-                        string icon_output = selectedGame.FrontImagePath + ".ico";
+                        string icon_convert = icon_input.Remove(icon_input.Length - 4);
+                        string icon_output = icon_convert + ".ico";
 
                         WshShell wsh = new WshShell();
                         IWshShortcut shortcut = wsh.CreateShortcut(
-                          Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + romname2 + ".lnk"
+                          Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + rom_output + ".lnk"
                         );
                         shortcut.TargetPath = launchBoxPath + "\\" + emulator.ApplicationPath;
                         shortcut.Arguments = emulator.CommandLine + emulatorPlatform.CommandLine + " \"" + launchBoxPath + selectedGame.ApplicationPath + "\"";
