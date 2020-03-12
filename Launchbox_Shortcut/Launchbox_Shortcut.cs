@@ -1,10 +1,9 @@
 ﻿using Unbroken.LaunchBox.Plugins;
 using Unbroken.LaunchBox.Plugins.Data;
-using System.Diagnostics;
 using System;
 using System.IO;
 using IWshRuntimeLibrary;
-
+using System.Diagnostics;
 
 namespace BB_Shortcut
 {
@@ -22,7 +21,7 @@ namespace BB_Shortcut
         {
             get
             {
-                return "Erstelle Verknüpfung - Clear Logo";
+                return "Desktop Shortcut";
             }
         }
 
@@ -72,26 +71,16 @@ namespace BB_Shortcut
                         string rom_input = selectedGame.Title;
                         string rom_output = rom_input.Replace(':', ' ');
                         string icon_input_path = selectedGame.FrontImagePath;
-                        string icon_output_raw= icon_input_path.Remove(icon_input_path.Length - 4);
+                        string icon_output_raw = icon_input_path.Remove(icon_input_path.Length - 4);
                         string icon_output_path = icon_output_raw + ".ico";
 
-                        // Convert-Icon
-                        string arguments = string.Format(@"-define jpeg:size=200x200 " + "\"" + icon_input_path + "\"" + " -thumbnail  \"256x256>\" -background transparent -gravity center -extent 256x256 " + "\"" + icon_output_path + "\""); ;
-                        string converter_path = Path.Combine(@"I:\LaunchBox\Plugins\convert.exe");
+                       // Convert - Icon
+                        string arguments = string.Format(@"-define jpeg:size=200x200 " + "\"" + icon_input_path + "\"" + " -thumbnail  \"256x256>\" -background transparent -gravity center -extent 256x256 " + "\"" + icon_output_path + "\"");     
+                        string converter_path = launchBoxPath + "Plugins\\Launchbox_Shortcut\\convert.exe";
                         var convert = new Process();
                         convert.StartInfo.FileName = converter_path;
                         convert.StartInfo.Arguments = arguments;
-                        convert.Start();
-
-                        //-------------------Debug-Console--------------------
-                        //Process p = new Process();
-                        //ProcessStartInfo psi = new ProcessStartInfo();
-                        //psi.FileName = "CMD.EXE";
-                        //psi.Arguments = "/K " + converter_path + " " + arguments;
-                        //p.StartInfo = psi;
-                        //p.Start();
-                        //p.WaitForExit();
-
+                        convert.Start();  
 
                         //Create-Shortcut
                         WshShell wsh = new WshShell();
