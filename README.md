@@ -1,8 +1,11 @@
-# Launchbox_Shortcut
+++++++++++++++++# Launchbox_Shortcut
 Shortcut Plugin für LaunchBox/BigBox
 
 
 # Installation des Proxmox Servers
+
+# Pissa
+***ok***
 
 **Schritt 1: Proxmox ISO-Image herunterladen**
 
@@ -39,6 +42,10 @@ Shortcut Plugin für LaunchBox/BigBox
 [![image.png](https://docs.robinthor.de/uploads/images/gallery/2024-04/scaled-1680-/image.png)](https://docs.robinthor.de/uploads/images/gallery/2024-04/image.png)
 
 Als letztes macht mal ein volles Update:
+
+'''bash
+TEST -
+'''
 
 ```bash
 apt update && apt upgrade -y
