@@ -46,7 +46,9 @@ Als letztes macht mal ein volles Update:
 '''bash
 TEST -
 '''
-
+```powershell
+GetAppx
+```
 ```bash
 apt update && apt upgrade -y
 ```
